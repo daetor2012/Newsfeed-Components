@@ -85,7 +85,15 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
-  }
+  },
+  {  
+    title: "David York's wonderous article!",
+    date: 'Oct 8th, 2019',
+    firstParagraph: 'Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing',
+    secondParagraph: 'Still testing Still testing Still testing Still testing Still testing Still testing Still testing Still testing Still testing',
+    thirdParagraph: 'Almost done Almost done Almost done Almost done Almost done Almost done Almost done Almost done Almost done Almost done Almost done'
+  },
+
 ];
 
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
@@ -112,3 +120,40 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+function articleCreator(title, date, first, second, third) {
+  let article = document.createElement("div");
+  let h2 = document.createElement("h2");
+  let p = document.createElement("p");
+  let p2 = document.createElement("p");
+  let p3 = document.createElement("p");
+  let p4 = document.createElement("p");
+  let span = document.createElement("span");
+  article.classList.add("article");
+  h2.classList.add("h2");
+  p.classList.add("date");
+  span.classList.add("expandButton");
+  h2.textContent = title;
+  p.textContent = date;
+  p2.textContent = first;
+  p3.textContent = second;
+  p4.textContent = third;
+  span.textContent = "test";
+  span.addEventListener('click', () => {
+    article.classList.toggle('article-open');
+  });
+  article.appendChild(h2);
+  article.appendChild(p);
+  article.appendChild(span);
+  article.appendChild(p2);
+  article.appendChild(p3);
+  article.appendChild(p4);
+  return article;
+
+
+};
+
+const articles = document.querySelector(".articles");
+
+data.forEach((data) => {
+  articles.appendChild(articleCreator(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph));
+});
