@@ -8,7 +8,6 @@ let menuItems = [
   'Music',
   'Log Out'
 ];
-
 /* 
 
   Step 1: Write a function that will create a menu component as seen below:
@@ -37,9 +36,10 @@ function menuCreator(array) {
   let menu = document.createElement("div");
   let ul = document.createElement("ul");
   menu.classList.add("menu");
-  array.forEach((data) => {
-    let item = data.document.createElement("li");
-    ul.appendChild(item);
+  array.forEach(item => {
+    let items = document.createElement("li");
+    items.textContent = item;
+    ul.appendChild(items);
     
 
   });
@@ -47,7 +47,6 @@ function menuCreator(array) {
     menu.classList.toggle("menu--open");
   });
   menu.appendChild(ul);
-  console.log(item);
   return menu;
 };
 

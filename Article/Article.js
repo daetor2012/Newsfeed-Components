@@ -137,7 +137,7 @@ function articleCreator(title, date, first, second, third) {
   p2.textContent = first;
   p3.textContent = second;
   p4.textContent = third;
-  span.textContent = "test";
+  span.textContent = "Expand";
   span.addEventListener('click', () => {
     article.classList.toggle('article-open');
   });
